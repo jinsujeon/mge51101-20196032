@@ -32,6 +32,13 @@ CNN / LSTM / ELMo / BERT 등 다양한 딥러닝 알고리즘을 적용하여 �
 
 제조업에서 time series 분석을 통해 양품인지 불량품인지 파악하고 불량이라면 무슨 불량인지 분석을 하고싶습니다.
 
+![good_data](https://user-images.githubusercontent.com/62274298/77392334-04dd4a00-6dde-11ea-97b1-7441f96e9989.png)
+
+<양품>
+
+
+
+
 COTE / 뉴럴넷 앙상블 / MCNN / LSTM-FCN 등 시계열 분류에 사용되는 알고리즘으로 공정데이터들의 불량파악을 95%이상 분류해 내는것이 목표입니다.
 
 
