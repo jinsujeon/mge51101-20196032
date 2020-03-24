@@ -37,6 +37,10 @@ CNN / LSTM / ELMo / BERT 등 다양한 딥러닝 알고리즘을 적용하여 �
 <양품>
 
 
+![bad_data](https://user-images.githubusercontent.com/62274298/77392350-0dce1b80-6dde-11ea-9fd1-ea1c5142e437.png)
+
+<불량품>
+
 
 
 COTE / 뉴럴넷 앙상블 / MCNN / LSTM-FCN 등 시계열 분류에 사용되는 알고리즘으로 공정데이터들의 불량파악을 95%이상 분류해 내는것이 목표입니다.
