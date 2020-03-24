@@ -9,7 +9,7 @@ E-mail : yg99192@unist.ac.kr
 
 ### final project(Temp)
 
-1.네이버 뉴스댓글분류를 통한 여론형성 확인
+1.네이버 뉴스댓글분류를 통한 여론형성 확인<\br>
 
 뉴스댓글 조작에 관한 이슈들이 있었습니다. 김경수 도지사의 드루킹 , 문재인 차이나게이트 등 네이버 뉴스댓글을 통해 여론이 좌지우지 되는것 같아보였습니다.
 
@@ -34,12 +34,12 @@ CNN / LSTM / ELMo / BERT 등 다양한 딥러닝 알고리즘을 적용하여 �
 
 ![good_data](https://user-images.githubusercontent.com/62274298/77392334-04dd4a00-6dde-11ea-97b1-7441f96e9989.png)
 
-                                                       <양품인 경우 시계열 데이터>
+                                            <양품인 경우 시계열 데이터>
 
 
 ![bad_data](https://user-images.githubusercontent.com/62274298/77392350-0dce1b80-6dde-11ea-9fd1-ea1c5142e437.png)
 
-                                                      <불량품인 경우 시계열 데이터>
+                                            <불량품인 경우 시계열 데이터>
 
 
 
