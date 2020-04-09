@@ -57,11 +57,12 @@ E-mail : yg99192@unist.ac.kr
 
 ## 4. Model evaluation
 
-* AUC Score
 * Accuracy Score
-* F1 score
+* F1 Score
 
-데이콘에서 nlp분류를 했을 때도 AUC score를 비교하였습니다. 주로 AUC를 쓰되 추가로 정확도와 F1-scroe를 통해 비교해보겠습니다.
+최종 분류는 친정부/반정부/중립 3가지로 진행할것입니다. 데이터가 imbalanced 할 수 있어서 F1-Score를 중점으로 보되 정확도도 참고하겠습니다.
+
+
 ## 5. Diffuculty
 
 ##### 5-1 . Labeling
@@ -73,7 +74,10 @@ E-mail : yg99192@unist.ac.kr
 ##### 5-2 preprocessing
 
 명사만 추출해서 라벨링을 하면 한계가 있을 것같습니다. 
-##### 5-3 
+
+##### 5-3 댓글 수집
+
+코로나 19에 대한 주제가 너무 넓기 때문에 몇가지 issue는 제거할 예정입니다. 이는 크롤링시 기사 Header를 보고 특정 단어가 있으면 댓글을 수집하지 않는 방향으로 하겠습니다.
 
 
 
