@@ -26,7 +26,8 @@ E-mail : yg99192@unist.ac.kr
 
 
 이 때 다음의 네모친 링크로 접속을 하게 되면 뉴스기사로 링크로 접속이 되는데 다음과 같은 댓글을 확인할수 있습니다.
-<그림2>
+<img width="519" alt="뉴스검색창" src="https://user-images.githubusercontent.com/62274298/78859767-50912400-7a6b-11ea-96b7-df71284d0097.png">
+
 
 
 
