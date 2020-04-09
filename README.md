@@ -17,18 +17,12 @@ E-mail : yg99192@unist.ac.kr
 이 이론이 실제 익명의 공간인 인터넷상에서도 적용되어 지는지 확인하겠습니다. 다수의 의견이 굉장히 친정부적 성향인데 반정부적 성향의 댓글이 얼마나 존재하는지, 혹은 그 반대일 땐 어떤지 , 가장 큰 뉴스포탈인 네이버에서 확인해보고 싶습니다.
 
 
-
-
-<img width="496" alt="네이버뉴스댓글" src="https://user-images.githubusercontent.com/62274298/77391383-f3933e00-6ddb-11ea-92d4-2e33a211d22d.png">
-
 ## 2. Data Description
 
 #### 2-1 수집방법
 
 네이버에 코로나 19를 치면 다음과 같이 많은 뉴스들이 검색됩니다
-<그림1>
-
-
+<img width="1080" alt="1" src="https://user-images.githubusercontent.com/62274298/78859716-2475a300-7a6b-11ea-9cdd-2c40bc6c63e5.png">
 
 
 이 때 다음의 네모친 링크로 접속을 하게 되면 뉴스기사로 링크로 접속이 되는데 다음과 같은 댓글을 확인할수 있습니다.
