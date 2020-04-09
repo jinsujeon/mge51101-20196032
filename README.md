@@ -39,7 +39,7 @@ E-mail : yg99192@unist.ac.kr
 |2020-03-06T20:40:37+0900|웃기고 있다~ 짱개한테는 암말 못하면서 오직 일본한테만 초강경 대응이란다 ㅋㅋㅋㅋㅋ 우리도 총선때 니들한테 초강경대응 할란다^^|263|18|
 
 이 후 word2vec과 tdm 매트릭스의 내적을통해 단어간 유사도를 보고 labeling을 하겠습니다. 
-[참고사이트](https://ratsgo.github.io/natural%20language%20processing/2017/03/08/word2vec/)
+[참고사이트](https://ratsgo.github.io/natural%20language%20processing/2017/03/08/word2vec/)를 보고 아이디어를 얻었습니다.
 #### 2-2 Data Preprocessing
 
 ##### a. storpwords
