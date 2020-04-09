@@ -29,9 +29,6 @@ E-mail : yg99192@unist.ac.kr
 <img width="519" alt="뉴스검색창" src="https://user-images.githubusercontent.com/62274298/78859767-50912400-7a6b-11ea-96b7-df71284d0097.png">
 
 
-
-
-
 여기서 댓글, 좋아요, 싫어요, 날짜 를 수집하게 되면 다음과 같은 자료구조를 형성하게 됩니다.
 
 |댓글|날짜|좋아요|싫어요|
@@ -41,6 +38,7 @@ E-mail : yg99192@unist.ac.kr
 |2020-03-03T13:56:54+0900|매번 고개숙이고 겸손한 대통령님..항상 응원합니다|1|30|
 |2020-03-06T20:40:37+0900|웃기고 있다~ 짱개한테는 암말 못하면서 오직 일본한테만 초강경 대응이란다 ㅋㅋㅋㅋㅋ 우리도 총선때 니들한테 초강경대응 할란다^^|263|18|
 
+이 후 word2vec과 tdm 매트릭스의 내적을통해 단어간 유사도를 보고 labeling을 하겠습니다. 
 #### 2-2 Data Preprocessing
 
 ##### a. storpwords
@@ -53,16 +51,15 @@ E-mail : yg99192@unist.ac.kr
 이 방법을 쓴 이유는 인터넷상으론 줄임말이 굉장히 많습니다.
 예를들어 질병본부를 질본 이라던지 , 그런 줄임말들을 dictionary에 추가를하면 명사로 인식해줘서 분석을 진행해주기 때문에 선정했습니다.
 
-
 ## 3 . Model 
 
 다양한 임베딩을 한 후  CNN 과 RNN을 사용하여 분석해 보겠습니다. 차후에 가능하면 ELMO와 같은 다양한 임베딩을 적용하여 문장분류를 해보겠습니다.
 
 ## 4. Model evaluation
 
-AUC Score
-Accuracy Score
-F1 score
+* AUC Score
+* Accuracy Score
+* F1 score
 
 데이콘에서 nlp분류를 했을 때도 AUC score를 비교하였습니다. 주로 AUC를 쓰되 추가로 정확도와 F1-scroe를 통해 비교해보겠습니다.
 ## 5. Diffuculty
