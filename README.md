@@ -7,23 +7,7 @@ School : Business Analytics
 E-mail : yg99192@unist.ac.kr
 ```
 
-# final project(Temp)
-
-
-## 2. Data Description
-
-#### 2-1 수집방법
-
-네이버에 코로나 19를 치면 다음과 같이 많은 뉴스들이 검색됩니다
-<img width="1080" alt="1" src="https://user-images.githubusercontent.com/62274298/78859716-2475a300-7a6b-11ea-9cdd-2c40bc6c63e5.png">
-
-
-이 때 다음의 네모친 링크로 접속을 하게 되면 뉴스기사로 링크로 접속이 되는데 다음과 같은 댓글을 확인할수 있습니다.
-<img width="519" alt="뉴스검색창" src="https://user-images.githubusercontent.com/62274298/78859767-50912400-7a6b-11ea-96b7-df71284d0097.png">
-
-
-여기서 댓글, 좋아요, 싫어요, 날짜 를 수집하게 되면 다음과 같은 자료구조를 형성하게 됩니다.
-
+# final project
 
 
 ## 1. introduction
@@ -58,7 +42,7 @@ The test was conducted using three models, CNN, LSTM, and GRU. All three had no 
 #### 4-2 loss curve
 
 
-<img width="519" alt="뉴스검색창" src="https://user-images.githubusercontent.com/62274298/78859767-50912400-7a6b-11ea-96b7-df71284d0097.png">
+![image](https://user-images.githubusercontent.com/62274298/85069324-e32e0c00-b1ee-11ea-9ac6-eff1af1fe621.png)
 Because of binary classification, I gave binary_cossentropy as lossfunction. ADAM was used to optimize and gave the default value. Train/test was randomly classified based on the proportion of the target variable. The batch size was allocated as 100. Epoch allocated 30 but as soon as the model learned several times, it recorded high accuracy and was learned within 10 times by early stopping.
 
 ## 5.Conclusion
