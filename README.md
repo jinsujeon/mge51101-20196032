@@ -9,13 +9,6 @@ E-mail : yg99192@unist.ac.kr
 
 # final project(Temp)
 
-### 1. Goal 침묵의 나선효과 이론을 텍스트마이닝으로 검정
-
-침묵의 나선효과란
-기본적으로 인간은 고립되거나 배척되는 것에 대한 두려움을 갖고 있고, 다수에게 받아 들여지기를 원한다. 때문에, 특정한 문제가 발생했을 때 이에 대한 여론을 면밀히 관찰하고, 자신의 의견과 다수가 지지하는 지배적인 여론이 일치한다는 확신이 생길 경우, 자신의 의견을 공공연히 표방하게 된다. 반대로 자신의 의견과 다수의 의견이 상충되거나, 자신의 의견이 소수 쪽에 속할 경우에는 침묵하는 경향이 있다. 때문에 주류에 속하게 된 의견은 확대 포장될 가능성이 생기고, 소수 의견은 과소평가되는 결과가 나올 수 있다. -by 위키피디아-
-
-이 이론이 실제 익명의 공간인 인터넷상에서도 적용되어 지는지 확인하겠습니다. 다수의 의견이 굉장히 친정부적 성향인데 반정부적 성향의 댓글이 얼마나 존재하는지, 혹은 그 반대일 땐 어떤지 , 가장 큰 뉴스포탈인 네이버에서 확인해보고 싶습니다.
-
 
 ## 2. Data Description
 
@@ -38,47 +31,28 @@ E-mail : yg99192@unist.ac.kr
 |2020-03-03T13:56:54+0900|매번 고개숙이고 겸손한 대통령님..항상 응원합니다|1|30|
 |2020-03-06T20:40:37+0900|웃기고 있다~ 짱개한테는 암말 못하면서 오직 일본한테만 초강경 대응이란다 ㅋㅋㅋㅋㅋ 우리도 총선때 니들한테 초강경대응 할란다^^|263|18|
 
-이 후 word2vec과 tdm 매트릭스의 내적을통해 단어간 유사도를 보고 labeling을 하겠습니다. 
-[참고사이트](https://ratsgo.github.io/natural%20language%20processing/2017/03/08/word2vec/)를 보고 아이디어를 얻었습니다.
-#### 2-2 Data Preprocessing
 
-##### a. storpwords
-'괜히','또또','사방','려면','다해','왜또','부터'
-다음과 같은 의미없는 단어들을 제거 후 분석하겠습니다. 
+1. introduction
+Text data is piled up extensively over the Internet. In the past, public opinion gathering was mostly possible by voting or by telephone. However, the development of IT technology makes the Internet accessible to most people, creating public opinion through the Internet. This study seeks to collect policy-related Internet news as Corona 19 spreads to see how public opinion forms on the Internet.
+People express their opinions a lot on NAVER, Korea's largest portal site. In particular, it is necessary to check the formation of public opinion on policy news. It puts a label on the comment and creates a deep learning model to classify the opinion of the comment that is constantly being expanded and reproduced. Through this, check whether comments related to policy are negative or positive on the Internet.
 
+2. Data Description
+Comments were crawled from March 1 to May 31 to collect news related to government policy and COVID-19 spread. The title of the news article excludes articles that are too political or have nothing to do with government policy. For example, if they had news articles with keywords far from government policy, such as ballet, Lee Man-hee, and Samsung, they were excluded. Finally, 505,743 comments were collected. KOMORAN which is Korean preprocessing library is used. Due to the nature of Internet comments, Internet terms should be added as nouns. For example, the keyword 'Moon Jae-ang' is an important word, but it is not collected as a noun. KOMORAN was used because it was relatively fast and easy to add new nouns. Even using a noun extractor, words that are not nouns are sometimes extracted. In this case, min_count was given to extract the word used at least three times. Also, we extracted a word that is more than 2 length, and finally, we specified stopwords to extract only meaningful nouns as much as possible. Input is the noun of each comment and output is the label value divided into anti-government cognition. Labels calculated from output were labelled using methods, and 405,330 of the total 505,743 comments were labelled as anti-government comments. The rate is about 80 percent.
+3.Method
+3-1 wor2vec
+Labeling is important to classify out Internet comments whether it is anti-government or not. Get Word2vec Embedding matrix of 505,743 comments. 35698 nouns were extracted. After that, find Euclidean distance between words and map it in a high dimension through the Rbf kernel. This results in the (35698, 35698) inter-word distance matrix. It then designates the anti-government pro-government Keyword based on prior knowledge. A total of 53 keywords were used, consisting of 36 anti-government words and 17 pro-government words. TDM is extracted from the comments and dot product them with this matrix. The similarity between each comment and keyword is calculated. The average of the top five distances of the antigovernment keyword and the top five distances of the pro-government keyword are obtained. When the anti-government is bigger, the comments specify the label as anti-government comments. The opposite all sets out label in pro-government word.
+3-2 Deep-learning Algorithms
+Use word2vec embedded matrix as input value. Use mode of comments to match length. The mode of comment length was 30. We used CNN algorithms that configured channels 3,4,5 and LSTM and GRU, which are frequently used in text data. CNN referred to Yoonkim's textclassification. Each CNN1D layer passed through the kernel size of [3,4,5] and concatenate after apply maxpooling. Then, passed through the concatenated layer as kernel size 3. Flat the Layer and then make is as fully-connected layers. Finally, let's have a binary classification of 0,1 by sigmoid function. when I used LSTM and GRU, I didn't build layers deep. Model evaluation has set up accuracy and AUC. Accuracy is the most intuitive value. AUC is also frequently used when data forms are imbalanced. In other words, it was necessary to find out if the anti-government accounts were actually well classified.
 
-##### b. Twitter 명사추출기
+4. Experiment
+4-1 result
+The test was conducted using three models, CNN, LSTM, and GRU. All three had no vanishing gradient problems and were well learned without overfitting. Accuracy and AUC were high in all models. Maybe it is because it is consistently labelled based on Word2vec.
+4-2 loss curve
+Because of binary classification, I gave binary_cossentropy as lossfunction. ADAM was used to optimize and gave the default value. Train/test was randomly classified based on the proportion of the target variable. The batch size was allocated as 100. Epoch allocated 30 but as soon as the model learned several times, it recorded high accuracy and was learned within 10 times by early stopping.
 
-이 방법을 쓴 이유는 인터넷상으론 줄임말이 굉장히 많습니다.
-예를들어 질병본부를 질본 이라던지 , 그런 줄임말들을 dictionary에 추가를하면 명사로 인식해줘서 분석을 진행해주기 때문에 선정했습니다.
+5.Conclusion
+I labelled the Internet comments to sort out whether they were anti-government or not based on deep learning. I think it will help us assess whether the Label is appropriate and if it goes well, it will help us understand the public opinion of the comments.
 
-## 3 . Model 
-
-다양한 임베딩을 한 후  CNN 과 RNN을 사용하여 분석해 보겠습니다. 차후에 가능하면 ELMO와 같은 다양한 임베딩을 적용하여 문장분류를 해보겠습니다.
-
-## 4. Model evaluation
-
-* Accuracy Score
-* F1 Score
-
-최종 분류는 친정부/반정부/중립 3가지로 진행할것입니다. 데이터가 imbalanced 할 수 있어서 F1-Score를 중점으로 보되 정확도도 참고하겠습니다.
-
-
-## 5. Diffuculty
-
-##### 5-1 . Labeling
-
-데이터에 기본적으로 Labeling이 되어있지않습니다. 저는 이 방법을 Word2vec과 TDM matrix를 곱하여 단어와 댓글관의 연관성을보고 threshhold값을 지정해서 score에 따라 댓글이 반정부/친정부/중립인지 분류하겠습니다. 라벨링이 제대로 되었는지 안되었는지는 후에 제가 labeling을 2000개 정도 해보고 비교해보겠습니다.
-
-이와같이 labeling을 하면 댓글에서 완전히 새로운 명사가 들어오면 word2vec에서 분류를 못합니다. 그래서 코로나 19로 수집된 20만개가량 댓글이 있는데
-하나의 큰 matrix를 구해서 완전히 학습될수있도록 하겠습니다.
-##### 5-2 preprocessing
-
-명사만 추출해서 라벨링을 하면 한계가 있을 것같습니다. 
-
-##### 5-3 댓글 수집
-
-코로나 19에 대한 주제가 너무 넓기 때문에 몇가지 issue는 제거할 예정입니다. 이는 크롤링시 기사 Header를 보고 특정 단어가 있으면 댓글을 수집하지 않는 방향으로 하겠습니다.
 
 
 
