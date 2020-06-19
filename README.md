@@ -11,7 +11,7 @@ E-mail : yg99192@unist.ac.kr
 
 
 ## 1. introduction
-Text data is piled up extensively over the Internet. In the past, public opinion gathering was mostly possible by voting or by telephone. However, the development of IT technology makes the Internet accessible to most people, creating public opinion through the Internet. This study seeks to collect policy-related Internet news as Corona 19 spreads to see how public opinion forms on the Internet.
+Text data is piled up extensively over the Internet. In the past, public opinion gathering was mostly possible by voting or by telephone. However, the development of IT technology makes the Internet accessible to most people, creating public opinion through the Internet. This study seeks to collect policy-related Internet news as COVID-19 spreads to see how public opinion forms on the Internet.
 People express their opinions a lot on NAVER, Korea's largest portal site. In particular, it is necessary to check the formation of public opinion on policy news. It puts a label on the comment and creates a deep learning model to classify the opinion of the comment that is constantly being expanded and reproduced. Through this, check whether comments related to policy are negative or positive on the Internet.
 
 ## 2. Data Description
@@ -46,9 +46,7 @@ The test was conducted using three models, CNN, LSTM, and GRU. All three had no 
 Because of binary classification, I gave binary_cossentropy as lossfunction. ADAM was used to optimize and gave the default value. Train/test was randomly classified based on the proportion of the target variable. The batch size was allocated as 100. Epoch allocated 30 but as soon as the model learned several times, it recorded high accuracy and was learned within 10 times by early stopping.
 
 ## 5.Conclusion
-I labelled the Internet comments to sort out whether they were anti-government or not based on deep learning. I think it will help us assess whether the Label is appropriate and if it goes well, it will help us understand the public opinion of the comments.
-
-
+A large amount of text data was labelled and classified into deep learning algorithms like CNN,LSTM,GRU. It was learned with about 500,000 text data and its classifier performance was also good. However, we need to verify that the labelling is accurate. Also, there will be a neutral comment in the current binary classification.I think deep learning performance will also change if class is subdivided into fice class like very anti-government, a little anti-government,neutral, a little pro-government, and a very pro-government. In addition, through this project, I experienced the strength of deep learning in unstructured data and identified the importance of embeddeding matrix in NLP. I hope to develop this project later to create a taxonomy that can check the public opinion of comments and contribute to the establishment of government policies. 
 
 
 
